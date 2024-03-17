@@ -1,0 +1,71 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.lineup {
+    background-color: v.$rosa;
+    padding: 5rem 0;
+    h3, p { //selecciona todos los h3 y los p de .lineup
+        text-align: center;
+        color: v.$blanco;
+    }
+    .dia {
+        text-transform: uppercase;
+        margin: 5rem 0;
+    }
+}
+
+.escenarios-contenedor{
+    @include m.tablet {     //tamaño de tablet
+        @include m.grid(2, 5rem); //llama al mixin para añadir grid  
+    }
+    p {
+        color: v.$negro;
+    }
+}
+.escenario{ //cada cuadro tiene una clase escenario
+    padding-top:2rem;
+
+    p{ //cada cuadro tiene un elemento <p>. Puede sustituirse p por .nombre-escenario
+        &:after{ //crea un pseudoelemento no presente en el html en cada cuadro despues de <p>
+            content: ''; //content se usa para crear el espacio del elemento
+            display:block; //inline block
+            width: 20rem;   //ancho de 200px
+            height: 10rem;  // alto de  100px
+            background-size: 15rem; //espacio de fondo de 150px
+            background-repeat: no-repeat;   //que no se repita la imagen incrustada
+            background-position: center center; //centrar el fondo
+            margin: 2rem auto 0 auto; //centrar el elemento en el div
+        }
+    }
+}
+/*css sabe que son el mismo after*/
+.edm .nombre-escenario:after{ //hay dos clases edm nombre escenario
+    background-image: url(../img/icono_edm.png); //se toma como referencia donde va a quedar compilado
+}
+.rock .nombre-escenario:after{ //hay dos clases edm nombre escenario
+    background-image: url(../img/icono_rock.png); //se toma como referencia donde va a quedar compilado
+}
+
+.calendario{
+    @include m.resetear-lista; //incluye  el mixin para listas
+    li{
+        padding:2.5rem;
+        font-weight: 700;
+        span{
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+    li:nth-child(odd){ //:nth-child->pseudo clase de los elementos de la lista | odd->impares
+        background-color: darken(v.$amarillo, $amount: 10%); //darken es de sass. 10% mas oscuro
+    }
+}
+.bg-verde{
+    background-color: v.$verde;
+    li:nth-child(odd){ //:nth-child->pseudo clase de los elementos de la lista | odd->impares
+        background-color: darken(v.$verde, 10%); //darken es de sass. 10% mas oscuro
+    }
+}

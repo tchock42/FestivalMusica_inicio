@@ -1,0 +1,42 @@
+@use 'variables' as v; //para poder ocupar las variables de _variables.scss
+
+// @mixin heading($color: blue, $border-radius: false){//directiva mixing se le pasa el parametro $color. Blue por default
+//     text-transform: uppercase;
+//     font-size: 2.4rem;
+//     color: $color; //recuerda, en sass no es necesario usar var
+//     letter-spacing: 1px;
+//     background-color: black;
+//     @if ($border-radius){ //@ porque es directiva de sass
+//         border-radius: 1rem;
+//     }
+// }
+@mixin telefono {
+    @media (min-width: v.$telefono){
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop){
+        @content;
+    }
+}
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL){
+        @content;
+    }
+}
+@mixin grid($columnas, $espaciado){
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado; //column-gap solo da espaciado entre colmnas, no filas
+}
+@mixin resetear-lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

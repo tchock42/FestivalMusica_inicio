@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.header{
+    background-color: v.$verde;
+    @include m.tablet {
+        &.fijo{ //queda como .header.fijo
+            left: 0; //lo coloca a la izquierda
+            top: 0; //hasta arriba
+            position: fixed;    //fija el header sobrepuesto al body
+            width: 100%;
+            box-shadow: 0.1rem 0.2rem 0.1rem #333;    
+    }
+    
+    }
+        h1{
+            color: v.$blanco;
+            text-align: center;
+            @include m.tablet {
+                margin: 0;
+            }
+        }
+        .contenido-header{
+            padding: 2rem;
+            @include m.tablet {
+                display: flex; //aplica flexbox, una cosa izquierda y otra derecha
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+}
+.navegacion-principal{
+    @include m.tablet {
+        display:flex; //los objetos se muestran de izquierda a derecha
+        gap: 2rem;
+    }
+    a{
+        display: block; //para que los elementos se muestren de arriba hacia abajo
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+        @include m.tablet {
+            margin:0
+        }
+        &:hover {
+            color: v.$morado;
+        }
+    }
+}
+
+// .prueba{
+//     @include m.heading(v.$amarillo, true); //se pasa el argumento de v.$amarillo
+// }
+// .texto{
+//     @include m.heading;
+// }

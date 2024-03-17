@@ -1,0 +1,43 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video{
+    position: relative;
+    max-height: 70rem;
+    min-height: 50rem;
+    overflow: hidden;
+    .overlay{
+        position:absolute;
+        background: rgb(165,3,255);
+        background: linear-gradient(270deg, rgba(165,3,255,0.5) 0%, rgba(255,0,110,0.3) 100%);
+        height: 100%;
+        width: 100%;
+        display:flex; //habilita la edicion de flex
+        flex-direction: column;
+        justify-content: center;
+    }
+    video{
+        width: auto;
+        display:block; //impide que background tome mas espacio que el video
+        @include m.desktop {
+            width: 100%;
+        }
+    }   
+}
+.contenido-video{
+    z-index: 1;
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p{
+        background-color: v.$rosa;
+        display: inline-block; //forza a los elementos a permanecer abajo pero solo ocupa el espacio necesario. Sino, el p abarcaria toda la pantalla
+        padding: 1rem 2rem;
+        color:  v.$blanco;
+        font-weight: 700;
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}
