@@ -1,4 +1,4 @@
-##Proyecto Festival de Música
+#Proyecto Festival de Música
 
 Este proyecto incluye funcionalidad con gulp SASS, función de compresión de código css y javascript
 
