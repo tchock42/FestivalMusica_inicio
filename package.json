@@ -6,7 +6,8 @@
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
     "tarea": "gulp primerTarea",
-    "css": "gulp css"
+    "css": "gulp css",
+    "build": "gulp build"
   },
   "keywords": [
     "SASS",

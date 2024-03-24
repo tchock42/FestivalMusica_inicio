@@ -5,3 +5,5 @@ Este proyecto incluye funcionalidad con gulp SASS, función de compresión de c�
 Instalar con npm install
 
 Ejecutar compilación con npx gulp dev
+
+Crear build npx gulp build
